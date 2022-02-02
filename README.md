@@ -29,7 +29,7 @@ MATLAB Reference Architecture is released with the twice-yearly general release 
 | Release |
 | ------- |
 | [R2021b](releases/R2021b/README.md) |
-| [R2021a](releases/R2021a/README.md) |
+| [R2021a](releases/R2021a/README.md) (Preconfigured with neuro toolkit and public datasets)|
 | [R2020b](releases/R2020b/README.md) |
 | [R2020a](releases/R2020a/README.md) |
 | [R2019b](releases/R2019b/README.md) |
