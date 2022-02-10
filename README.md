@@ -26,6 +26,7 @@ The following guide will help you automate the process of running the MATLAB des
 
 MATLAB Reference Architecture is released with the twice-yearly general release schedule of MATLAB. To view instructions for deploying the MATLAB reference architecture, select a MATLAB release:
 
+<<<<<<< HEAD
 | Release |
 | ------- |
 | [R2022a](releases/R2022a/README.md) |
@@ -35,6 +36,16 @@ MATLAB Reference Architecture is released with the twice-yearly general release 
 | [R2020a](releases/R2020a/README.md) |
 | [R2019b](releases/R2019b/README.md) |
 | [R2019a\_and\_older](releases/R2019a_and_older/README.md) |
+=======
+| Release |Notes |
+| ------- | |
+| [R2021b](releases/R2021b/README.md) | With neuro toolkit and public datasets |
+| [R2021a](releases/R2021a/README.md) | With neuro toolkit and public datasets |
+| [R2020b](releases/R2020b/README.md) | |
+| [R2020a](releases/R2020a/README.md) | |
+| [R2019b](releases/R2019b/README.md) | |
+| [R2019a\_and\_older](releases/R2019a_and_older/README.md) | |
+>>>>>>> R2021b added
 
 
 ## Architecture and Resources
