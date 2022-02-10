@@ -452,7 +452,7 @@
                                 "sudo apt-get install s3fs\n",
                                 "cd /home/ubuntu\n",
                                 "sudo git clone https://github.com/NeurodataWithoutBorders/matnwb.git\n",
-                                "wget https://raw.githubusercontent.com/INCF/matlab-on-aws/main/startup.m --no-check-certificate\n",
+                                "wget https://raw.githubusercontent.com/INCF/matlab-on-aws/master/startup.m --no-check-certificate\n",
                                 "mkdir -m a=rwx s3-dandi\n",
                                 "mkdir -p /home/ubuntu/Documents/MATLAB\n",
                                 "mv startup.m /home/ubuntu/Documents/MATLAB\n"
