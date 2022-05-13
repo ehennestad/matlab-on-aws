@@ -42,6 +42,7 @@ You will need a current MATLAB license. Any type of MATLAB license can be used, 
 Additional requirements are listed at the [MATLAB on AWS](https://github.com/mathworks-ref-arch/matlab-on-aws) root repository.
 
 **Note**: user is responsible for the cost of the AWS services.
+<<<<<<< HEAD
 
 ## Costs
 
@@ -174,3 +175,5 @@ The VM image uses MathWorks Hosted License Manager by default. For information o
 # Technical Support
 
 If you require assistance or have a request for additional features or capabilities, please contact [MathWorks Technical Support](https://www.mathworks.com/support/contact_us.html).
+=======
+>>>>>>> added suggestions from Vijay
