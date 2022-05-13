@@ -1,31 +1,68 @@
-# MATLAB on Amazon Web Services (Linux VM)
+# MATLAB for Neuroscience on AWS
+
+Maintained fork of the [MATLAB® on AWS](https://github.com/mathworks-ref-arch/matlab-on-aws) repository from MathWorks®, with adaptions for [neuroscience](https://www.mathworks.com/solutions/neuroscience.html) use cases
+
+## About MATLAB on AWS
+
+The MATLAB on AWS repository is a reference architecture enabling users to set up a single Amazon Web Services™ (AWS) EC2 instance whose Amazon Machine Image (AMI) contains MATLAB with the following capabilities:
+
+- **MATLAB Desktop on a virtual desktop** (Linux) from user's local machine<sup>1</sup>
+- **Customizable EC2 machine** including compute & memory options<sup>2</sup>
+- **Ready-to-use AMI** with pre-installed MathWorks software including MATLAB
+- **Persistent virtual machine (VM)** with user-saved code & data<sup>3</sup>
+  <sup>
+
+1. via the Remote Desktop Protocol (RDP)
+2. via one-time launch of a pre-configured CloudFormation template
+3. via the AWS Web Console
+   </sup>
+
+## About MATLAB for Neuroscience on AWS
+
+This maintained fork adapts the AMI from the MATLAB on AWS reference architecture to support [neuroscience](https://www.mathworks.com/solutions/neuroscience.html) users and use cases.
+
+This neuroscience-focused AMI is adapted to pre-configure the following additional components:
+
+| Category           | Components                                                                                                                    | Comment               |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| Neuroscience Data  | _ [DANDI Data Archive](https://dandiarchive.org/)<br>_ (more coming soon)                                                     | Public AWS S3 buckets |
+| Neuroscience Code  | _ [MatNWB](https://www.mathworks.com/matlabcentral/fileexchange/67741-neurodatawithoutborders-matnwb)<br>_ (more coming soon) |                       |
+| MathWorks Software | 5 most commonly used MathWorks toolboxes for Neuroscience use cases                                                           | Coming Soon           |
+
+### Update Cycle
+
+This maintained fork is updated at least twice per year around each [MathWorks release date](https://www.mathworks.com/products/new_products/release_model.html?s_tid=srchtitle_release%20schedule_1).
+
+At those times, it is synchronized to the [MATLAB on AWS](https://github.com/mathworks-ref-arch/matlab-on-aws) root repository. Between those updates, there may be additional differences.
 
 ## Requirements
-Before starting, you will need the following:
--   A MATLAB® license that is current on Software
-    Maintenance Service (SMS). For more information, see [MATLAB Licensing in the Cloud](https://mathworks.com/help/install/license/licensing-for-mathworks-products-running-on-the-cloud.html).
--   An Amazon Web Services™ (AWS) account.
--   An SSH Key Pair for your AWS account in the appropriate region. For more information, see [Amazon EC2 Key Pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
+
+You will need a current MATLAB license. Any type of MATLAB license can be used, including Academic and Student. Users in academia are encouraged to check if they already have access via a local [campus license](https://www.mathworks.com/academia/tah-support-program/eligibility.html).
+
+Additional requirements are listed at the [MATLAB on AWS](https://github.com/mathworks-ref-arch/matlab-on-aws) root repository.
+
+**Note**: user is responsible for the cost of the AWS services.
 
 ## Costs
+
 You are responsible for the cost of the AWS services used when you create cloud resources using this guide. Resource settings, such as instance type, will affect the cost of deployment. For cost estimates, see the pricing pages for each AWS service you will be using. Prices are subject to change.
 
 ## Introduction
 
 The following guide will help you automate the process of running the MATLAB desktop on Amazon Web Services using a Linux virtual machine and connect to it using the Remote Desktop Protocol (RDP). The automation is accomplished using an AWS CloudFormation template. The template is a JSON file that defines the resources needed to run MATLAB on AWS. For information about the architecture of this solution, see [Architecture and Resources](#architecture-and-resources). For information about templates, see [AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html).
 
-
 ## Prepare your AWS Account
 
 1. If you don't have an AWS account, create one at https://aws.amazon.com by following the on-screen instructions.
 2. Use the regions selector in the navigation bar to choose a region supported for the release of MATLAB that you want to deploy.
-3. Create a [key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in that region.  The key pair is necessary as it is the only way to connect to the instance as an administrator.
-4. If necessary, [request a service limit increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-) for the Amazon EC2 instance type or VPCs.  You might need to do this if you already have existing deployments that use that instance type or you think you might exceed the [default limit](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) with this deployment.
+3. Create a [key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in that region. The key pair is necessary as it is the only way to connect to the instance as an administrator.
+4. If necessary, [request a service limit increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-) for the Amazon EC2 instance type or VPCs. You might need to do this if you already have existing deployments that use that instance type or you think you might exceed the [default limit](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) with this deployment.
 
 # Deployment Steps
 
 MATLAB Reference Architecture is released with the twice-yearly general release schedule of MATLAB. To view instructions for deploying the MATLAB reference architecture, select a MATLAB release:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 | Release |
@@ -57,6 +94,16 @@ MATLAB Reference Architecture is released with the twice-yearly general release 
 =======
 >>>>>>> Update README.md
 
+=======
+| Release                                                                      |
+| ---------------------------------------------------------------------------- |
+| [R2021b](releases/R2021b/README.md) (With neuro toolkit and public datasets) |
+| [R2021a](releases/R2021a/README.md) (With neuro toolkit and public datasets) |
+| [R2020b](releases/R2020b/README.md)                                          |
+| [R2020a](releases/R2020a/README.md)                                          |
+| [R2019b](releases/R2019b/README.md)                                          |
+| [R2019a_and_older](releases/R2019a_and_older/README.md)                      |
+>>>>>>> Added suggestions from Vijay
 
 ## Architecture and Resources
 
@@ -65,8 +112,9 @@ MATLAB Reference Architecture is released with the twice-yearly general release 
 Deploying this reference architecture sets up a single AWS EC2 instance containing MATLAB and a security group that opens the appropriate ports for SSH and RDP access.
 
 To make deployment easy, we have prepared an Amazon Machine Image (AMI) running Ubuntu with pre-installed drivers. The AMI contains the following software:
-* MATLAB, Simulink, Toolboxes, and support for GPUs.
-* Add-Ons: Deep Learning Toolbox(TM) Model for AlexNet Network, Deep Learning Toolbox Model for GoogLeNet Network, and Deep Learning Toolbox Model for ResNet-50 Network
+
+- MATLAB, Simulink, Toolboxes, and support for GPUs.
+- Add-Ons: Deep Learning Toolbox(TM) Model for AlexNet Network, Deep Learning Toolbox Model for GoogLeNet Network, and Deep Learning Toolbox Model for ResNet-50 Network
 
 ### Resources
 
@@ -85,35 +133,44 @@ The following resources may be created according to your deployment configuratio
 ## FAQ
 
 ### How do I save my changes in the VM?
-All your files and changes are stored locally on the virtual machine.  They will persist until you either terminate the virtual machine instance or delete the stack.  Stopping the instance does not destroy the data on the instance.  If you want your changes to persist  outside the stack or before you terminate an instance, you’ll need to:
-* Copy your files to another location (*Example*: S3 or Mount an Amazon EBS volume and create a snapshot), or
-* Create an image of the virtual machine.
+
+All your files and changes are stored locally on the virtual machine. They will persist until you either terminate the virtual machine instance or delete the stack. Stopping the instance does not destroy the data on the instance. If you want your changes to persist outside the stack or before you terminate an instance, you’ll need to:
+
+- Copy your files to another location (_Example_: S3 or Mount an Amazon EBS volume and create a snapshot), or
+- Create an image of the virtual machine.
 
 ### What happens to my data if I shut down the instance?
-You may want to shut down the instance when you aren’t using it to save some money (you only pay for the storage used by the virtual machine when it is stopped).  To shut down an EC2 instance, locate it in the AWS web console, select the instance and choose “Instance State/Stop” from the “Actions” menu.  You can restart it from the same menu.  Any files or changes made to the virtual machine will persist when shutting down and will be there when you restart.  A side-effect of shutting down the virtual machine and restarting is that the public IP address and DNS name may change.  Inspecting the EC2 instance in the AWS console will reveal the new IP address and DNS name.
+
+You may want to shut down the instance when you aren’t using it to save some money (you only pay for the storage used by the virtual machine when it is stopped). To shut down an EC2 instance, locate it in the AWS web console, select the instance and choose “Instance State/Stop” from the “Actions” menu. You can restart it from the same menu. Any files or changes made to the virtual machine will persist when shutting down and will be there when you restart. A side-effect of shutting down the virtual machine and restarting is that the public IP address and DNS name may change. Inspecting the EC2 instance in the AWS console will reveal the new IP address and DNS name.
 
 ### How do I keep the same public IP address?
-To avoid having to change the IP address between restarts, you can enable the *Keep public IP address the same* during deployment.
+
+To avoid having to change the IP address between restarts, you can enable the _Keep public IP address the same_ during deployment.
 
 ### How do I save a VM image?
+
 To save a VM image, locate the EC2 Instance in the AWS web console and select **Actions** > **Image** > **Create Image.**
 
 ### How do I copy the VM image to a different region?
+
 You can copy the AMI for a certain MATLAB version to a target region of your choice.
 
-* In the Releases folder of this repository, choose the MATLAB release that you want to copy. Download and open the CloudFormation template .json file for that release.
-* Locate the Mappings section in the CloudFormation template. Copy the AMI ID for one of the existing regions, for example, us-east-1.
-* To copy the AMI to your target region, [follow the instructions at Copying an AMI on the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html).
-* In the Mappings section of the CloudFormation template, add a new RegionMap pair corresponding to your target region. Insert the new AMI ID of the AMI in the target region.
-* In your AWS Console, change your region to your target region. In the CloudFormation menu, select Create Stack > With new resources option. Provide the modified CloudFormation template.
+- In the Releases folder of this repository, choose the MATLAB release that you want to copy. Download and open the CloudFormation template .json file for that release.
+- Locate the Mappings section in the CloudFormation template. Copy the AMI ID for one of the existing regions, for example, us-east-1.
+- To copy the AMI to your target region, [follow the instructions at Copying an AMI on the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html).
+- In the Mappings section of the CloudFormation template, add a new RegionMap pair corresponding to your target region. Insert the new AMI ID of the AMI in the target region.
+- In your AWS Console, change your region to your target region. In the CloudFormation menu, select Create Stack > With new resources option. Provide the modified CloudFormation template.
 
 You can now deploy the AMI in your target region using the AMI that you copied.
 
 ### How do I customize the VM image?
+
 You can customize a VM image by launching the reference architecture, applying any changes you want to the EC2 Instance (such as installing additional software, drivers, and files), and then saving an image of that instance using the AWS Console. For more information, see [How Do I save a VM image?](#how-do-i-save-a-vm-image). When you create a stack, replace the AMI ID in the CloudFormation template with the AMI ID of your customized image.
 
 ### How do I use a different license manager?
+
 The VM image uses MathWorks Hosted License Manager by default. For information on how to use other license managers, see [MATLAB Licensing in the Cloud](https://mathworks.com/help/install/license/licensing-for-mathworks-products-running-on-the-cloud.html).
 
 # Technical Support
+
 If you require assistance or have a request for additional features or capabilities, please contact [MathWorks Technical Support](https://www.mathworks.com/support/contact_us.html).
