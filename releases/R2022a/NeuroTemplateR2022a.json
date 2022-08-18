@@ -470,8 +470,9 @@
                 "sudo chown ubuntu:ubuntu /home/ubuntu/NANSEN\n",
                 "sudo git clone https://github.com/emeyers/Brain-Observatory-Toolbox.git\n",
                 "sudo chown ubuntu:ubuntu /home/ubuntu/Brain-Observatory-Toolbox\n",
-                "wget https://raw.githubusercontent.com/INCF/matlab-on-aws/master/startup.m --no-check-certificate\n",
+                "wget https://raw.githubusercontent.com/ehennestad/matlab-on-aws/master/startup.m --no-check-certificate\n",
                 "mkdir -m a=rwx s3-dandi\n",
+                "mkdir -m a=rwx s3-allen\n",
                 "mkdir -p /home/ubuntu/Documents/MATLAB\n",
                 "mv startup.m /home/ubuntu/Documents/MATLAB\n"                
               ]
