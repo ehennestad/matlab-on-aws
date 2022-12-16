@@ -20,12 +20,12 @@ isInitialized = getpref('MatlabOnAWS', 'IsInitialized', false);
 if ~isInitialized
     % Change branch of bot repo to dev:
     system('sudo git config --global --add safe.directory /home/ubuntu/Brain-Observatory-Toolbox');
-    system('sudo git checkout dev');
+    system('cd /home/ubuntu/Brain-Observatory-Toolbox; sudo git checkout dev');
     
     % Need to claim owhnership of folders
-    system('sudo chown -R ubuntu:ubuntu /home/ubuntu/Brain-Observatory-Toolbox')
-    system('sudo chown -R ubuntu:ubuntu /home/ubuntu/NANSEN')
-    system('sudo chown -R ubuntu:ubuntu /home/ubuntu/Documents/MATLAB')
+    system('sudo chown -R ubuntu:ubuntu /home/ubuntu/Brain-Observatory-Toolbox');
+    system('sudo chown -R ubuntu:ubuntu /home/ubuntu/NANSEN');
+    system('sudo chown -R ubuntu:ubuntu /home/ubuntu/Documents/MATLAB');
 
     % Configure bot preferences for cloud 
     prefs = bot.getPreferences();
